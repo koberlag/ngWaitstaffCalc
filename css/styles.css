@@ -1,0 +1,54 @@
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    margin-right:1.1em;
+    margin-bottom:1em;
+    font-size: 1.3rem;
+    font-size: 400;
+    line-height: 140%;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background: #C61C6F;
+    color: white;
+    background-color: #2D8BCF;
+    background-size: 18px 18px;
+    min-width: 28px;
+    min-height: 28px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+         -o-user-select: none;
+            user-select: none;
+}
+
+.btn-container{
+	width: 100%;
+	text-align: right;
+	margin-top:1.5em;
+}
+
+.ng-invalid .btn {
+  background: gray;
+}
+
+.ng-valid .btn:hover { background-color: #509D12; }
+
+input.ng-invalid.ng-touched {
+  border: 1px solid #DA3637;
+}
+
+input.ng-valid.ng-touched {
+  border: 1px solid #509D12;
+}
+
+.error {
+  color: red;
+  padding-bottom: 10px;
+}
