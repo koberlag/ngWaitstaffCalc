@@ -1,3 +1,70 @@
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+  }
+
+.content-container{
+  text-align: center;
+  width:80%;
+  max-width:1200px;
+  margin: 0 auto;
+}
+
+h2{
+  margin:0;
+}
+
+section{
+  border : 1px solid black;
+  padding : 1em 1em 0 1em;
+}
+
+#meal-details{
+  width:400px;
+  text-align: center;
+  height:100%;
+}
+
+#customer-charges,
+#earnings-info{
+  width:250px;
+  text-align: center;
+  margin-left: 50px;
+}
+
+#customer-charges{
+  margin-bottom:2em;
+}
+
+.left-col{
+  vertical-align: top;
+  display: inline-block;
+  height:375px;
+}
+
+.right-col{
+  display: inline-block;
+   height:375px;
+}
+
+
+.content-container label{
+  display: inline-block;
+  width:160px;
+  text-align: right;
+}
+
+.content-container div{
+  margin-bottom:1em;
+}
+
+
 .btn {
     display: inline-block;
     padding: 8px 16px;
@@ -51,4 +118,22 @@ input.ng-valid.ng-touched {
 .error {
   color: red;
   padding-bottom: 10px;
+}
+
+#reset-btn-container{
+  text-align:right;
+}
+
+@media (max-width: 918px) {
+  #customer-charges,
+#earnings-info{
+  width:400px;
+  text-align: center;
+  margin-left:0px;
+}
+  .left-col{
+      vertical-align: top;
+      display: inline-block;
+      height:250px;
+  }
 }

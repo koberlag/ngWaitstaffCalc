@@ -1,50 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="CalcApp">
 <head>
 	<meta charset="UTF-8">
 	<title>Waitstaff Calculator</title>
-	<script src="angular/angular.min.js"></script>
+	<script src="angular/angular.js"></script>
+	<script src="app.js"></script>
 	<link rel="stylesheet" href="css/styles.css">
+	
 </head>
-<body>
-	<header>
-		<h1>Waitstaff Calculator</h1>
-	</header>
-	<section id="meal-details">
-		<h2>Enter The Meals Details</h2>
-		<hr>
-		<label for="meal_price">Base Meal Price:</label>
-		<input type="number" name="meal_price">
-		<label for="tax_rate">Tax Rate:</label>
-		<input type="number" name="tax_rate">
-		<label for="tip_percentage">Tip Percentage:</label>
-		<input type="number" name="tip_percentage">
-		<button type="submit" class="btn">Submit</button>
-		<button type="button" class="btn">Cancel</button>
-	</section>
-	<section id="customer-charges">
-		<h2>Customer Charges</h2>
-		<hr>
-		<label for="subtotal_charge">Subtotal</label>
-		<span name="subtotal_charge"></span>
-		<label for="tip_charge">Tip</label>
-		<span name="tip_charge"></span>
-		<label for="total_charge">Total</label>
-		<hr>
-		<span name="total_charge"></span>
-	</section>
-	<section id="earnings-info">
-		<h2>My Earnings Info</h2>
-		<hr>
-		<label for="tip_total">Tip Total:</label>
-		<span name="tip_total"></span>
-		<label for="meal_count">Meal Count:</label>
-		<span name="meal_count"></span>
-		<label for="tip_per_meal">Average Tip Per Meal:</label>
-		<span for="tip_per_meal"></span>
-	</section>
-	<div id="reset-btn-container">
-		<button type="button" class="btn">Reset</button>
+<body ng-controller="CalculatorController">
+	<div class="content-container">
+		<header>
+			<h1>Waitstaff Calculator</h1>
+		</header>
+		<div class="error">{{message}}</div>
+		<div class="left-col">
+			<form name="calcForm" novalidate ng-submit="calcForm.$valid && calculate()" >
+				<section id="meal-details">
+					<h2>Enter The Meals Details</h2>
+					<hr>
+					<div class="row">
+						<label for="meal_price">Base Meal Price: $</label>
+						<input type="number" name="meal_price"
+						ng-model="instance.basePrice">
+					</div>
+					<div class="row">
+						<label for="tax_rate">Tax Rate: %</label>
+						<input type="number" name="tax_rate"
+						ng-model="instance.taxRate">
+					</div>
+					<div class="row">
+						<label for="tip_percentage">Tip Percentage: %</label>
+						<input type="number" name="tip_percentage"
+						ng-model="instance.tipPercentage">
+					</div>
+					<button type="submit" class="btn">Submit</button>
+					<button type="button" class="btn"
+					ng-click="cancel()">Cancel</button>
+				</section>
+			</form>
+		</div>
+		<div class="right-col">
+			<section id="customer-charges">
+				<h2>Customer Charges</h2>
+				<hr>
+				<div class="row">
+					<label for="subtotal_charge">Subtotal: $</label>
+					<span name="subtotal_charge">{{instance.subtotal | number:2}}</span>
+				</div>
+				<div class="row">
+					<label for="tip_charge">Tip: $</label>
+					<span name="tip_charge">{{instance.tipAmount | number:2}}</span>
+				</div>
+				<hr>
+				<div class="row">
+					<label for="total_charge">Total: $</label>
+					<span name="total_charge">{{instance.totalAmount | number:2}}</span>
+				</div>
+			</section>
+			<section id="earnings-info">
+				<h2>My Earnings Info</h2>
+				<hr>
+				<div class="row">
+					<label for="meal_count">Meal Count:</label>
+					<span name="meal_count">{{runningTotal.mealCount}}</span>
+				</div>
+				<div class="row">
+					<label for="tip_total">Tip Total: $</label>
+					<span name="tip_total">{{runningTotal.tipTotal | number:2}}</span>
+				</div>
+				<div class="row">
+					<label for="tip_per_meal">Average Tip Per Meal: $</label>
+					<span for="tip_per_meal">{{runningTotal.averageTipPerMeal | number:2}}</span>
+				</div>
+			</section>
+		</div>
+		<div id="reset-btn-container">
+			<button type="button" class="btn"
+			ng-click="reset()">Reset</button>
+		</div>
 	</div>
 </body>
 </html>
