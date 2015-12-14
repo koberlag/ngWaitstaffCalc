@@ -1,16 +1,22 @@
-<section id="earnings-info">
-	<h2>My Earnings Info</h2>
-	<hr>
-	<div class="row">
-		<label for="meal_count">Meal Count:</label>
-		<span name="meal_count">{{myEarnings.earnings.mealCount}}</span>
-	</div>
-	<div class="row">
-		<label for="tip_total">Tip Total: $</label>
-		<span name="tip_total">{{myEarnings.earnings.tipTotal | number:2}}</span>
-	</div>
-	<div class="row">
-		<label for="tip_per_meal">Average Tip Per Meal: $</label>
-		<span for="tip_per_meal">{{myEarnings.earnings.averageTipPerMeal | number:2}}</span>
-	</div>
-</section>
+<div class="content-container">
+	<section id="earnings-info">
+		<h2>My Earnings Info</h2>
+		<hr>
+		<div class="row">
+			<label for="meal_count">Meal Count:</label>
+			<span name="meal_count">{{myEarnings.earnings.mealCount}}</span>
+		</div>
+		<div class="row">
+			<label for="tip_total">Tip Total:</label>
+			<span name="tip_total">{{myEarnings.earnings.tipTotal | number:2}}</span>
+		</div>
+		<div class="row">
+			<label for="tip_per_meal">Average Tip Per Meal:</label>
+			<span for="tip_per_meal">{{myEarnings.earnings.averageTipPerMeal | number:2}}</span>
+		</div>
+		<div class="btn-container">
+	<button type="button" class="btn"
+	ng-click="reset()">Reset</button>
+</div>
+	</section>
+</div>

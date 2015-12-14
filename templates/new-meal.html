@@ -19,9 +19,11 @@
 				<input type="number" name="tip_percentage"
 				ng-model="newMeal.meal.tipPercentage">
 			</div>
-			<button type="submit" class="btn">Submit</button>
-			<button type="button" class="btn"
-			ng-click="cancel()">Cancel</button>
+			<div class="btn-container">
+				<button type="submit" class="btn">Submit</button>
+				<button type="button" class="btn"
+				ng-click="cancel()">Cancel</button>
+			</div>
 		</section>
 	</form>
 </div>
@@ -43,8 +45,4 @@
 			<span name="total_charge">{{newMeal.meal.totalAmount | number:2}}</span>
 		</div>
 	</section>
-</div>
-<div id="reset-btn-container">
-	<button type="button" class="btn"
-	ng-click="reset()">Reset</button>
 </div>

@@ -7,52 +7,25 @@ html {
   -webkit-box-sizing: inherit;
   -moz-box-sizing: inherit;
   box-sizing: inherit;
-  }
-
-.content-container{
-  text-align: center;
-  width:80%;
-  max-width:1200px;
-  margin: 0 auto;
 }
 
 h2{
   margin:0;
 }
 
-section{
+.content-container{
+  text-align: center;
+  width:80%;
+  margin: 0 auto;
+}
+
+.content-container section{
   border : 1px solid black;
-  padding : 1em 1em 0 1em;
-}
-
-#meal-details{
-  width:400px;
+  padding : 1em 1em 1em 1em;
   text-align: center;
-  height:100%;
+  margin:2em auto 0 auto;
+  width:400px; 
 }
-
-#customer-charges,
-#earnings-info{
-  width:250px;
-  text-align: center;
-  margin-left: 50px;
-}
-
-#customer-charges{
-  margin-bottom:2em;
-}
-
-.left-col{
-  vertical-align: top;
-  display: inline-block;
-  height:375px;
-}
-
-.right-col{
-  display: inline-block;
-   height:375px;
-}
-
 
 .content-container label{
   display: inline-block;
@@ -60,45 +33,29 @@ section{
   text-align: right;
 }
 
-.content-container div{
-  margin-bottom:1em;
+.row{
+  margin:.5em 0 .5em 0;
+}
+
+#customer-charges label{
+  width:70px;
 }
 
 
 .btn {
     display: inline-block;
     padding: 8px 16px;
-    margin-right:1.1em;
-    margin-bottom:1em;
-    font-size: 1.3rem;
-    font-size: 400;
-    line-height: 140%;
-    text-align: center;
-    text-decoration: none;
-    white-space: nowrap;
-    vertical-align: middle;
+    margin-top:.5em;
+    font-size: 1.25rem;
     cursor: pointer;
     border: 1px solid transparent;
     border-radius: 4px;
-    background: #C61C6F;
     color: white;
     background-color: #2D8BCF;
-    background-size: 18px 18px;
-    min-width: 28px;
-    min-height: 28px;
-    background-position: center center;
-    background-repeat: no-repeat;
-    -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-         -o-user-select: none;
-            user-select: none;
 }
 
 .btn-container{
-	width: 100%;
-	text-align: right;
-	margin-top:1.5em;
+  margin:0 auto;
 }
 
 .ng-invalid .btn {
@@ -118,22 +75,4 @@ input.ng-valid.ng-touched {
 .error {
   color: red;
   padding-bottom: 10px;
-}
-
-#reset-btn-container{
-  text-align:right;
-}
-
-@media (max-width: 918px) {
-  #customer-charges,
-#earnings-info{
-  width:400px;
-  text-align: center;
-  margin-left:0px;
-}
-  .left-col{
-      vertical-align: top;
-      display: inline-block;
-      height:250px;
-  }
 }

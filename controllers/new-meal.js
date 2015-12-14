@@ -1,11 +1,8 @@
 angular.module('CalcApp')
-.controller('NewMealController', ['$scope', 'earningsFactory', function($scope, earningsFactory){
-	
-	//TODO: We probably have to keep track of the running total
-	//with rootscope or factory
+.controller('NewMealController', ['$scope', 'earningsService', 'mealService', function($scope, earningsService, mealService){
 	var vm = this;
-	vm.meal = getNewMeal();
-	earnings = earningsFactory.getEarnings();
+	vm.meal = mealService.meal;
+	earnings = earningsService.getEarnings();
 	
 	$scope.message = '';
 
@@ -27,42 +24,16 @@ angular.module('CalcApp')
 		}
 
 		$scope.message = '';
-		vm.meal.subtotal = getSubtotal();
-		vm.meal.tipAmount = getTipAmount();
-		vm.meal.totalAmount = getTotal();
+		vm.meal.subtotal = mealService.getSubtotal();
+		vm.meal.tipAmount = mealService.getTipAmount();
+		vm.meal.totalAmount = mealService.getTotal();
 		earnings.mealCount++;
 		earnings.tipTotal += vm.meal.tipAmount;
 	};
 
 	$scope.cancel = function(){
 		$scope.message = '';
-		vm.meal = getNewMeal();
+		vm.meal = mealService.getNewMeal();
 	};
 
-	function getSubtotal(){
-		return vm.meal.price + getTaxAmount();
-	}
-
-	function getTotal(){
-		return getSubtotal() + getTipAmount();
-	}
-
-	function getTipAmount(){
-		return vm.meal.price * (vm.meal.tipPercentage/100);
-	}
-
-	function getTaxAmount(){
-		return  vm.meal.price * (vm.meal.taxRate/100);
-	}
-
-	function getNewMeal(){
-		return {
-			price : 0.00,
-			taxRate : 0,
-			tipPercentage : 0,
-			subtotal : 0.00,
-			tipAmount : 0.00,
-			totalAmount : 0.00
-		};
-	}
 }]);
